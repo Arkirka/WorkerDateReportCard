@@ -36,7 +36,8 @@ public class WelcomePageController {
 
             Parent root = FXMLLoader.load(getClass().getResource("/fxml\\reportCardPage.fxml"));
             reportCardPage = new Stage();
-            reportCardPage.setScene(new Scene(root, 1366, 576));
+            reportCardPage.setScene(new Scene(root, 1366, 599));
+            reportCardPage.setResizable(false);
             reportCardPage.show();
         } catch (IOException er) {
             er.printStackTrace();
