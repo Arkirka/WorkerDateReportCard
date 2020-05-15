@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.web.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -23,49 +24,15 @@
             <Font name="Century Gothic" size="18.0" />
          </font>
       </Label>
-      <TableView fx:id="tableCardReport" layoutX="335.0" layoutY="42.0" prefHeight="526.0" prefWidth="1017.0">
+      <TableView fx:id="tableCardReport" layoutX="335.0" layoutY="42.0" prefHeight="526.0" prefWidth="232.0">
         <columns>
           <TableColumn fx:id="columnNameLasrName" prefWidth="105.0" text="ФИО" />
           <TableColumn fx:id="columnPosition" prefWidth="71.0" text="Должность" />
             <TableColumn fx:id="columnWorkerId" prefWidth="52.0" text="Таб. №" />
-            <TableColumn fx:id="columnDay1" editable="false" minWidth="6.0" prefWidth="19.0" text="1" />
-            <TableColumn fx:id="columnDay2" editable="false" prefWidth="22.0" text="2" />
-            <TableColumn fx:id="columnDay3" editable="false" prefWidth="22.0" text="3" />
-            <TableColumn fx:id="columnDay4" editable="false" prefWidth="22.0" text="4" />
-            <TableColumn fx:id="columnDay5" editable="false" prefWidth="22.0" text="5" />
-            <TableColumn fx:id="columnDay6" editable="false" prefWidth="22.0" text="6" />
-            <TableColumn fx:id="columnDay7" editable="false" prefWidth="22.0" text="7" />
-            <TableColumn fx:id="columnDay8" editable="false" prefWidth="22.0" text="8" />
-            <TableColumn fx:id="columnDay9" editable="false" prefWidth="22.0" text="9" />
-            <TableColumn fx:id="columnDay10" editable="false" prefWidth="22.0" text="10" />
-            <TableColumn fx:id="columnDay11" editable="false" prefWidth="22.0" text="11" />
-            <TableColumn fx:id="columnDay12" editable="false" prefWidth="22.0" text="12" />
-            <TableColumn fx:id="columnDay13" editable="false" prefWidth="22.0" text="13" />
-            <TableColumn fx:id="columnDay14" editable="false" prefWidth="22.0" text="14" />
-            <TableColumn fx:id="columnDay15" editable="false" prefWidth="22.0" text="15" />
-            <TableColumn fx:id="columnDay16" editable="false" prefWidth="22.0" text="16" />
-            <TableColumn fx:id="columnDay17" editable="false" prefWidth="22.0" text="17" />
-            <TableColumn fx:id="columnDay18" editable="false" prefWidth="22.0" text="18" />
-            <TableColumn fx:id="columnDay19" editable="false" prefWidth="22.0" text="19" />
-            <TableColumn fx:id="columnDay20" editable="false" prefWidth="22.0" text="20" />
-            <TableColumn fx:id="columnDay21" editable="false" prefWidth="22.0" text="21" />
-            <TableColumn fx:id="columnDay22" editable="false" prefWidth="22.0" text="22" />
-            <TableColumn fx:id="columnDay23" editable="false" prefWidth="22.0" text="23" />
-            <TableColumn fx:id="columnDay24" editable="false" prefWidth="22.0" text="24" />
-            <TableColumn fx:id="columnDay25" editable="false" prefWidth="22.0" text="25" />
-            <TableColumn fx:id="columnDay26" editable="false" prefWidth="22.0" text="26" />
-            <TableColumn fx:id="columnDay27" editable="false" prefWidth="22.0" text="27" />
-            <TableColumn fx:id="columnDay28" editable="false" prefWidth="22.0" text="28" />
-            <TableColumn fx:id="columnDay29" editable="false" prefWidth="22.0" text="29" />
-            <TableColumn fx:id="columnDay30" editable="false" prefWidth="22.0" text="30" />
-            <TableColumn fx:id="columnDay31" editable="false" prefWidth="31.0" text="31" />
-            <TableColumn fx:id="columResult" prefWidth="100.0" text="Итого" />
         </columns>
       </TableView>
       <ToggleButton fx:id="tButtonJanuary" layoutX="340.0" layoutY="13.0" mnemonicParsing="false" onAction="#tButtonJanuaryPressed" prefHeight="23.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Январь" />
       <ToggleButton fx:id="tButtonFebruary" layoutX="423.0" layoutY="13.0" mnemonicParsing="false" onAction="#tButtonFebruaryPressed" prefHeight="23.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Февраль" />
-      <ToggleButton fx:id="tButtonMarch" layoutX="506.0" layoutY="13.0" mnemonicParsing="false" onAction="#tButtonMarchPressed" prefHeight="23.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Март" />
-      <ToggleButton fx:id="tButtonApril" layoutX="589.0" layoutY="13.0" mnemonicParsing="false" onAction="#tButtonAprilPressed" prefHeight="23.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Апрель" />
       <ToggleButton fx:id="tButtonMay" layoutX="672.0" layoutY="13.0" mnemonicParsing="false" onAction="#tButtonMayPressed" prefHeight="23.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Май" />
       <ToggleButton fx:id="tButtonJune" layoutX="755.0" layoutY="13.0" mnemonicParsing="false" onAction="#tButtonJunePressed" prefHeight="23.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Июнь" />
       <ToggleButton fx:id="tButtonJuly" layoutX="838.0" layoutY="13.0" mnemonicParsing="false" onAction="#tButtonJulyPressed" prefHeight="23.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Июль" />
@@ -79,5 +46,16 @@
             <Font name="Calibri" size="18.0" />
          </font>
       </Label>
+      <TabPane layoutX="568.0" layoutY="42.0" prefHeight="526.0" prefWidth="784.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Untitled Tab 1">
+               <content>
+                  <WebView fx:id="tableDate" prefHeight="516.0" prefWidth="760.0" />
+               </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <ToggleButton fx:id="tButtonMarch" layoutX="506.0" layoutY="13.0" mnemonicParsing="false" onAction="#tButtonMarchPressed" prefHeight="23.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Март" />
+      <ToggleButton fx:id="tButtonApril" layoutX="589.0" layoutY="13.0" mnemonicParsing="false" onAction="#tButtonAprilPressed" prefHeight="23.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Апрель" />
    </children>
 </AnchorPane>

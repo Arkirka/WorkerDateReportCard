@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.web.WebView;
 import ru.vorobyov.database.bl.DatabaseUtil;
 import ru.vorobyov.database.entity.ReportCardData;
 import ru.vorobyov.database.service.DepartmentService;
@@ -28,67 +29,14 @@ public class ReportCardPageController {
     private TableColumn<ReportCardData, Integer> columnNameLasrName;
 
     @FXML
-    private TableColumn<?, ?> columnDay25;
-
-    @FXML
-    private TableColumn<?, ?> columnDay24;
-
-    @FXML
-    private TableColumn<?, ?> columnDay27;
-
-    @FXML
-    private TableColumn<?, ?> columnDay26;
-
-    @FXML
-    private TableColumn<?, ?> columnDay29;
-
-    @FXML
-    private TableColumn<?, ?> columnDay28;
-
-    @FXML
     private ToggleButton tButtonMarch;
-
-    @FXML
-    private TableColumn<?, ?> columnDay21;
-
-    @FXML
-    private TableColumn<?, ?> columnDay20;
-
-    @FXML
-    private TableColumn<?, ?> columnDay23;
-
-    @FXML
-    private TableColumn<?, ?> columResult;
-
-    @FXML
-    private TableColumn<?, ?> columnDay22;
-
-    @FXML
-    private TableColumn<?, ?> columnDay14;
-
-    @FXML
-    private TableColumn<?, ?> columnDay13;
-
-    @FXML
-    private TableColumn<?, ?> columnDay16;
 
     @FXML
     private Label infoLabel;
 
     @FXML
-    private TableColumn<?, ?> columnDay15;
-
-    @FXML
     private ToggleButton tButtonJuly;
 
-    @FXML
-    private TableColumn<?, ?> columnDay18;
-
-    @FXML
-    private TableColumn<?, ?> columnDay17;
-
-    @FXML
-    private TableColumn<?, ?> columnDay19;
 
     @FXML
     private ToggleButton tButtonDecember;
@@ -99,14 +47,6 @@ public class ReportCardPageController {
     @FXML
     private ToggleButton tButtonSeptember;
 
-    @FXML
-    private TableColumn<?, ?> columnDay10;
-
-    @FXML
-    private TableColumn<?, ?> columnDay12;
-
-    @FXML
-    private TableColumn<?, ?> columnDay11;
 
     @FXML
     private ToggleButton tbuttonDepartmentFirst;
@@ -133,49 +73,19 @@ public class ReportCardPageController {
     private ToggleButton tButtonOctober;
 
     @FXML
-    private TableColumn<?, ?> columnDay7;
-
-    @FXML
-    private TableColumn<?, ?> columnDay6;
-
-    @FXML
-    private TableColumn<?, ?> columnDay9;
-
-    @FXML
-    private TableColumn<?, ?> columnDay8;
-
-    @FXML
     private ToggleButton tButtonNovember;
 
     @FXML
-    private TableColumn<?, ?> columnDay1;
-
-    @FXML
     private ToggleButton tButtonFebruary;
-
-    @FXML
-    private TableColumn<?, ?> columnDay3;
-
-    @FXML
-    private TableColumn<?, ?> columnDay2;
-
-    @FXML
-    private TableColumn<?, ?> columnDay5;
-
-    @FXML
-    private TableColumn<?, ?> columnDay4;
-
-    @FXML
-    private TableColumn<?, ?> columnDay30;
-
-    @FXML
-    private TableColumn<?, ?> columnDay31;
 
     @FXML
     private TableView<ReportCardData> tableCardReport;
 
     @FXML
     private ToggleButton tButtonAugust;
+
+    @FXML
+    private WebView tableDate = new WebView();
 
     private ObservableList<ReportCardData> workersData = FXCollections.observableArrayList();
 
@@ -205,6 +115,8 @@ public class ReportCardPageController {
         columnWorkerId.setCellValueFactory(new PropertyValueFactory<ReportCardData, Integer>("workerId"));
 
         tableCardReport.setItems(workersData);
+
+        tableDate.getEngine().load("http://docs.oracle.com/javafx/");
     }
 
     private void initData() throws IOException, SQLException {
