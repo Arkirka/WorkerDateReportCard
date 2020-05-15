@@ -8,9 +8,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import ru.vorobyov.database.bl.DatabaseUtil;
+import ru.vorobyov.database.service.*;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.SQLException;
 
 public class WelcomePageController {
 
@@ -26,6 +28,12 @@ public class WelcomePageController {
     void toReportCard(ActionEvent event) {
         try {
             Connection connection = DatabaseUtil.getConnection();
+            try {
+                createTables();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
             Parent root = FXMLLoader.load(getClass().getResource("/fxml\\reportCardPage.fxml"));
             reportCardPage = new Stage();
             reportCardPage.setScene(new Scene(root, 1366, 576));
@@ -38,6 +46,14 @@ public class WelcomePageController {
     @FXML
     void toEdit(ActionEvent event) {
 
+    }
+
+    public void createTables() throws IOException, SQLException {
+        new DepartmentService().createTable();
+        new JobInfoService().createTable();
+        new WorkerService().createTable();
+        new EncodingService().createTable();
+        new AccountingService().createTable();
     }
 
 }
