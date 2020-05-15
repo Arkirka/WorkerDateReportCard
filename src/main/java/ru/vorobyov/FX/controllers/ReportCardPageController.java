@@ -1,22 +1,31 @@
 package ru.vorobyov.FX.controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.ToggleButton;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import ru.vorobyov.database.bl.DatabaseUtil;
+import ru.vorobyov.database.entity.ReportCardData;
+import ru.vorobyov.database.service.DepartmentService;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class ReportCardPageController {
 
     @FXML
-    private TableColumn<?, ?> columnWorkerId;
+    private TableColumn<ReportCardData, Integer> columnWorkerId;
 
     @FXML
     private ToggleButton tButtonApril;
 
     @FXML
-    private TableColumn<?, ?> columnNameLasrName;
+    private TableColumn<ReportCardData, Integer> columnNameLasrName;
 
     @FXML
     private TableColumn<?, ?> columnDay25;
@@ -85,7 +94,7 @@ public class ReportCardPageController {
     private ToggleButton tButtonDecember;
 
     @FXML
-    private TableColumn<?, ?> columnPosition;
+    private TableColumn<ReportCardData, String> columnPosition;
 
     @FXML
     private ToggleButton tButtonSeptember;
@@ -163,15 +172,64 @@ public class ReportCardPageController {
     private TableColumn<?, ?> columnDay31;
 
     @FXML
+    private TableView<ReportCardData> tableCardReport;
+
+    @FXML
     private ToggleButton tButtonAugust;
+
+    private ObservableList<ReportCardData> workersData = FXCollections.observableArrayList();
 
     @FXML
     void update(ActionEvent event) {
+        try {
+            tbuttonDepartmentFirst.setText(new DepartmentService().getAll().get(0).getDepartment());
+            tbuttonDepartmentSecond.setText(new DepartmentService().getAll().get(1).getDepartment());
+            tbuttonDepartmentThird.setText(new DepartmentService().getAll().get(2).getDepartment());
+            infoLabel.setText("Выбирите департамент и месяц, а затем нажмите обновить");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+        try {
+            initData();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        columnNameLasrName.setCellValueFactory(new PropertyValueFactory<ReportCardData, Integer>("nameLastName"));
+        columnPosition.setCellValueFactory(new PropertyValueFactory<ReportCardData, String>("position"));
+        columnWorkerId.setCellValueFactory(new PropertyValueFactory<ReportCardData, Integer>("workerId"));
+
+        tableCardReport.setItems(workersData);
     }
 
-    private void initData() {
+    private void initData() throws IOException, SQLException {
+        Statement stmt = null;
+        Connection connection = DatabaseUtil.getConnection();
+        stmt = connection.createStatement();
+        String sql = "SELECT concat(NAME, LAST_NAME), POSITION, WORKER_ID FROM WORKER";
+        StringBuilder sb = new StringBuilder(sql);
 
+        if(tbuttonDepartmentFirst.isSelected()) {
+            sb.append(" WHERE DEPARTMENT = " + "'" + tbuttonDepartmentFirst.getText() + "'" + ";");
+        } else if(tbuttonDepartmentSecond.isSelected()) {
+            sb.append(" WHERE DEPARTMENT = " + "'" + tbuttonDepartmentSecond.getText() + "'" + ";");
+        } else if(tbuttonDepartmentThird.isSelected()) {
+            sb.append(" WHERE DEPARTMENT = " + "'" + tbuttonDepartmentThird.getText() + "'" + ";");
+        }
+
+        sql = new String(sb);
+        System.out.println(sql);
+        ResultSet rst = stmt.executeQuery(sql);
+
+        while (rst.next()){
+            workersData.add(new ReportCardData(rst.getString(1), rst.getString(2), rst.getInt(3)));
+            System.out.println(rst.getString(1));
+        }
     }
 
     @FXML
