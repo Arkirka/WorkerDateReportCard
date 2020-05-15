@@ -8,10 +8,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import ru.vorobyov.database.bl.DatabaseUtil;
+import ru.vorobyov.database.entity.*;
 import ru.vorobyov.database.service.*;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.SQLException;
 
 public class WelcomePageController {
@@ -50,11 +52,214 @@ public class WelcomePageController {
     }
 
     public void createTables() throws IOException, SQLException {
-        new DepartmentService().createTable();
-        new JobInfoService().createTable();
-        new WorkerService().createTable();
-        new EncodingService().createTable();
-        new AccountingService().createTable();
+
+        if(!new AccountingService().getAll().isEmpty()) new AccountingService().truncateTable();
+        if(!new EncodingService().getAll().isEmpty()) new EncodingService().truncateTable();
+        if(!new WorkerService().getAll().isEmpty()) new WorkerService().truncateTable();
+        if(!new DepartmentService().getAll().isEmpty()) new DepartmentService().truncateTable();
+        if(!new JobInfoService().getAll().isEmpty()) new JobInfoService().truncateTable();
+
+        DepartmentService departmentService = new DepartmentService();
+        departmentService.createTable();
+
+
+
+        JobInfoService jobInfoService = new JobInfoService();
+        jobInfoService.createTable();
+
+
+        WorkerService workerService = new WorkerService();
+        workerService.createTable();
+
+
+        EncodingService encodingService = new EncodingService();
+        encodingService.createTable();
+
+
+        AccountingService accountingService = new AccountingService();
+        accountingService.createTable();
+
+
+        Department department = new Department();
+        department.setDepartment("Автоматизация антипригарных стульев");
+        new DepartmentService().add(department);
+        department.setDepartment("Разработка цветочных фреймворков");
+        new DepartmentService().add(department);
+        department.setDepartment("PR станков и горшков");
+        new DepartmentService().add(department);
+
+        JobInfo jobInfo = new JobInfo();
+        jobInfo.setPosition("Повар");
+        new JobInfoService().add(jobInfo);
+        jobInfo.setPosition("IT-директор");
+        new JobInfoService().add(jobInfo);
+
+        Worker worker = new Worker();
+        worker.setWorkerId(0342);
+        worker.setPreview(null);
+        worker.setName("Пётр");
+        worker.setLastName("Семёнов");
+        worker.setBirthday(new Date(1990, 3, 24));
+        worker.setAge(30);
+        worker.setAddress("г. Москва");
+        worker.setRemoteWork(false);
+        worker.setDepartment("Автоматизация антипригарных стульев");
+        worker.setPosition("IT-директор");
+        new WorkerService().add(worker);
+
+        worker.setWorkerId(9382);
+        worker.setPreview(null);
+        worker.setName("Василий");
+        worker.setLastName("Алибабаев");
+        worker.setBirthday(new Date(1983, 5, 23));
+        worker.setAge(37);
+        worker.setAddress("г. СПб");
+        worker.setRemoteWork(false);
+        worker.setDepartment("Автоматизация антипригарных стульев");
+        worker.setPosition("Повар");
+        new WorkerService().add(worker);
+
+        Encoding encoding = new Encoding();
+        encoding.setEncoding("Я");
+        new EncodingService().add(encoding);
+        encoding.setEncoding("Н");
+        new EncodingService().add(encoding);
+        encoding.setEncoding("В");
+        new EncodingService().add(encoding);
+        encoding.setEncoding("Рв");
+        new EncodingService().add(encoding);
+        encoding.setEncoding("Б");
+        new EncodingService().add(encoding);
+        encoding.setEncoding("К");
+        new EncodingService().add(encoding);
+        encoding.setEncoding("ОТ");
+        new EncodingService().add(encoding);
+        encoding.setEncoding("До");
+        new EncodingService().add(encoding);
+        encoding.setEncoding("Хд");
+        new EncodingService().add(encoding);
+        encoding.setEncoding("У");
+        new EncodingService().add(encoding);
+        encoding.setEncoding("Ож");
+        new EncodingService().add(encoding);
+
+        Accounting accounting = new Accounting();
+        accounting.setWorkerId(9382);
+        accounting.setEncoding("Я");
+        accounting.setDay(new Date(2020,1, 1));
+        new AccountingService().add(accounting);
+        accounting.setWorkerId(9382);
+        accounting.setEncoding("Я");
+        accounting.setDay(new Date(2020,1, 2));
+        new AccountingService().add(accounting);
+        accounting.setWorkerId(9382);
+        accounting.setEncoding("Я");
+        accounting.setDay(new Date(2020,1, 3));
+        new AccountingService().add(accounting);
+        accounting.setWorkerId(9382);
+        accounting.setEncoding("В");
+        accounting.setDay(new Date(2020,1, 4));
+        new AccountingService().add(accounting);
+        accounting.setEncoding("В");
+        accounting.setDay(new Date(2020,1, 5));
+        new AccountingService().add(accounting);
+        accounting.setWorkerId(9382);
+        accounting.setEncoding("Я");
+        accounting.setDay(new Date(2020,1, 6));
+        new AccountingService().add(accounting);
+        accounting.setWorkerId(9382);
+        accounting.setEncoding("Я");
+        accounting.setDay(new Date(2020,1, 7));
+        new AccountingService().add(accounting);
+        accounting.setWorkerId(9382);
+        accounting.setEncoding("Я");
+        accounting.setDay(new Date(2020,1, 8));
+        new AccountingService().add(accounting);
+        accounting.setWorkerId(9382);
+        accounting.setEncoding("Я");
+        accounting.setDay(new Date(2020,1, 9));
+        new AccountingService().add(accounting);
+        accounting.setWorkerId(9382);
+        accounting.setEncoding("Я");
+        accounting.setDay(new Date(2020,1, 10));
+        new AccountingService().add(accounting);
+        accounting.setWorkerId(9382);
+        accounting.setEncoding("В");
+        accounting.setDay(new Date(2020,1, 11));
+        new AccountingService().add(accounting);
+        accounting.setEncoding("В");
+        accounting.setDay(new Date(2020,1, 12));
+        new AccountingService().add(accounting);
+
+        accounting.setWorkerId(0342);
+        accounting.setEncoding("Я");
+        accounting.setDay(new Date(2020,1, 1));
+        new AccountingService().add(accounting);
+        accounting.setWorkerId(0342);
+        accounting.setEncoding("Я");
+        accounting.setDay(new Date(2020,1, 2));
+        new AccountingService().add(accounting);
+        accounting.setWorkerId(0342);
+        accounting.setEncoding("Я");
+        accounting.setDay(new Date(2020,1, 3));
+        new AccountingService().add(accounting);
+        accounting.setWorkerId(0342);
+        accounting.setEncoding("В");
+        accounting.setDay(new Date(2020,1, 4));
+        new AccountingService().add(accounting);
+        accounting.setWorkerId(0342);
+        accounting.setEncoding("В");
+        accounting.setDay(new Date(2020,1, 5));
+        new AccountingService().add(accounting);
+        accounting.setWorkerId(0342);
+        accounting.setEncoding("Я");
+        accounting.setDay(new Date(2020,1, 6));
+        new AccountingService().add(accounting);
+        accounting.setWorkerId(0342);
+        accounting.setEncoding("Я");
+        accounting.setDay(new Date(2020,1, 7));
+        new AccountingService().add(accounting);
+        accounting.setWorkerId(0342);
+        accounting.setEncoding("Я");
+        accounting.setDay(new Date(2020,1, 8));
+        new AccountingService().add(accounting);
+        accounting.setWorkerId(0342);
+        accounting.setEncoding("Я");
+        accounting.setDay(new Date(2020,1, 9));
+        new AccountingService().add(accounting);
+        accounting.setWorkerId(0342);
+        accounting.setEncoding("Я");
+        accounting.setDay(new Date(2020,1, 10));
+        new AccountingService().add(accounting);
+        accounting.setWorkerId(0342);
+        accounting.setEncoding("В");
+        accounting.setDay(new Date(2020,1, 11));
+        new AccountingService().add(accounting);
+        accounting.setWorkerId(0342);
+        accounting.setEncoding("В");
+        accounting.setDay(new Date(2020,1, 12));
+        new AccountingService().add(accounting);
+        accounting.setWorkerId(0342);
+        accounting.setEncoding("Я");
+        accounting.setDay(new Date(2020,1, 13));
+        new AccountingService().add(accounting);
+        accounting.setWorkerId(0342);
+        accounting.setEncoding("Я");
+        accounting.setDay(new Date(2020,1, 14));
+        new AccountingService().add(accounting);
+        accounting.setWorkerId(0342);
+        accounting.setEncoding("Я");
+        accounting.setDay(new Date(2020,1, 15));
+        new AccountingService().add(accounting);
+        accounting.setWorkerId(0342);
+        accounting.setEncoding("Я");
+        accounting.setDay(new Date(2020,1, 16));
+        new AccountingService().add(accounting);
+        accounting.setWorkerId(0342);
+        accounting.setEncoding("Я");
+        accounting.setDay(new Date(2020,1, 17));
+        new AccountingService().add(accounting);
+
     }
 
 }

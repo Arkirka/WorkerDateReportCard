@@ -99,4 +99,11 @@ public class DepartmentService implements DepartmentDAO {
                 ");");
         stmt.close();
     }
+
+    @Override
+    public void truncateTable() throws SQLException {
+        Statement stmt = connection.createStatement();
+        stmt.execute("DELETE FROM DEPARTMENT");
+        stmt.close();
+    }
 }

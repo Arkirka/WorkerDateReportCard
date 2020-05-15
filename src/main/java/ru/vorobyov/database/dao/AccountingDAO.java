@@ -22,4 +22,6 @@ public interface AccountingDAO {
 
     //create table
     void createTable() throws SQLException;
+
+    void truncateTable() throws SQLException;
 }

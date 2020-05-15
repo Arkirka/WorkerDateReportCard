@@ -153,4 +153,11 @@ public class JobInfoService implements JobInfoDAO {
                 ");");
         stmt.close();
     }
+
+    @Override
+    public void truncateTable() throws SQLException {
+        Statement stmt = connection.createStatement();
+        stmt.execute("DELETE FROM JOB_INFO");
+        stmt.close();
+    }
 }

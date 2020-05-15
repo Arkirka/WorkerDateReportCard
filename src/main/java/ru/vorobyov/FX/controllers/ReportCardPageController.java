@@ -170,6 +170,10 @@ public class ReportCardPageController {
 
     }
 
+    private void initData() {
+
+    }
+
     @FXML
     void buttonDepartmentFirstPressed(ActionEvent event) {
         if(tbuttonDepartmentFirst.isSelected()){

@@ -106,4 +106,11 @@ public class AccountingService implements AccountingDAO {
                 ");\n");
         stmt.close();
     }
+
+    @Override
+    public void truncateTable() throws SQLException {
+        Statement stmt = connection.createStatement();
+        stmt.execute("DELETE FROM ACCOUNTING");
+        stmt.close();
+    }
 }

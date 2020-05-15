@@ -20,4 +20,6 @@ public interface JobInfoDAO {
     void remove(JobInfo jobInfo);
 
     void createTable() throws SQLException;
+
+    void truncateTable() throws SQLException;
 }

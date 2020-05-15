@@ -22,4 +22,6 @@ public interface WorkerDAO {
     void remove(Worker worker);
 
     void createTable() throws SQLException;
+
+    void truncateTable() throws SQLException;
 }

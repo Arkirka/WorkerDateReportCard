@@ -19,7 +19,7 @@ public class WorkerService implements WorkerDAO {
     @Override
     public void add(Worker worker) {
         PreparedStatement preparedStatement = null;
-        String sql = "INSERT INTO WORKER (WORKER_ID, PREVIEW, NAME, LASTNAME, BIRTHDAY, AGE, ADDRESS, REMOTE_WORK, DEPARTMENT, POSITION) VALUES(?, ?, ?, ?, ?, ?, ?, ? , ?, ?)";
+        String sql = "INSERT INTO WORKER (WORKER_ID, PREVIEW, NAME, LAST_NAME, BIRTHDAY, AGE, ADDRESS, REMOTE_WORK, DEPARTMENT, POSITION) VALUES(?, ?, ?, ?, ?, ?, ?, ? , ?, ?)";
 
         try {
             preparedStatement = connection.prepareStatement(sql);
@@ -60,7 +60,7 @@ public class WorkerService implements WorkerDAO {
     public List<Worker> getAll() throws SQLException {
         List<Worker> workersList = new ArrayList<>();
 
-        String sql = "SELECT WORKER_ID, PREVIEW, NAME, LASTNAME, BIRTHDAY, AGE, ADDRESS, REMOTE_WORK, DEPARTMENT, POSITION FROM WORKER";
+        String sql = "SELECT WORKER_ID, PREVIEW, NAME, LAST_NAME, BIRTHDAY, AGE, ADDRESS, REMOTE_WORK, DEPARTMENT, POSITION FROM WORKER";
 
         Statement statement = null;
         try {
@@ -74,7 +74,7 @@ public class WorkerService implements WorkerDAO {
                 worker.setWorkerId(resultSet.getInt("WORKER_ID"));
                 worker.setPreview(resultSet.getString("PREVIEW"));
                 worker.setName(resultSet.getString("NAME"));
-                worker.setLastName(resultSet.getString("LASTNAME"));
+                worker.setLastName(resultSet.getString("LAST_NAME"));
                 worker.setBirthday(resultSet.getDate("BIRTHDAY"));
                 worker.setAge(resultSet.getInt("AGE"));
                 worker.setAddress(resultSet.getString("ADDRESS"));
@@ -102,7 +102,7 @@ public class WorkerService implements WorkerDAO {
     public void update(Worker worker) {
         PreparedStatement preparedStatement = null;
 
-        String sql = "UPDATE WORKER SET PREVIEW=?, NAME=?, LASTNAME=?, BIRTHDAY=?, AGE=?, ADDRESS=?, REMOTE_WORK=?, DEPARTMENT=?, POSITION=? WHERE WORKER_ID=?";
+        String sql = "UPDATE WORKER SET PREVIEW=?, NAME=?, LAST_NAME=?, BIRTHDAY=?, AGE=?, ADDRESS=?, REMOTE_WORK=?, DEPARTMENT=?, POSITION=? WHERE WORKER_ID=?";
 
         try {
             preparedStatement = connection.prepareStatement(sql);
@@ -188,6 +188,13 @@ public class WorkerService implements WorkerDAO {
                 "      FOREIGN KEY (department) REFERENCES Department(department),\n" +
                 "      FOREIGN KEY (position) REFERENCES Job_Info(position)\n" +
                 ");");
+        stmt.close();
+    }
+
+    @Override
+    public void truncateTable() throws SQLException {
+        Statement stmt = connection.createStatement();
+        stmt.execute("DELETE FROM WORKER");
         stmt.close();
     }
 }
