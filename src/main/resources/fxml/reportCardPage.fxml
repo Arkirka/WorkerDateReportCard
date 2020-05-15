@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="599.0" prefWidth="1366.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.vorobyov.FX.controllers.ReportCardPageController">
+   <children>
+      <Pane layoutX="14.0" layoutY="27.0" prefHeight="541.0" prefWidth="265.0" style="-fx-border-width: 1px; -fx-border-color: black;">
+         <children>
+            <Button fx:id="buttonUpdate" layoutX="64.0" layoutY="479.0" mnemonicParsing="false" onAction="#update" prefHeight="48.0" prefWidth="137.0" stylesheets="@/css/button.css" text="Обновить" />
+            <ToggleButton fx:id="tbuttonDepartmentFirst" layoutX="1.0" layoutY="27.0" mnemonicParsing="false" onAction="#buttonDepartmentFirstPressed" prefHeight="37.0" prefWidth="263.0" stylesheets="@/css/toggleButton.css" text="Первый департамент" />
+            <ToggleButton fx:id="tbuttonDepartmentSecond" layoutX="1.0" layoutY="64.0" mnemonicParsing="false" onAction="#buttonDepartmentSecondPressed" prefHeight="37.0" prefWidth="263.0" stylesheets="@/css/toggleButton.css" text="Второй департамент" />
+            <ToggleButton fx:id="tbuttonDepartmentSecond" layoutX="1.0" layoutY="101.0" mnemonicParsing="false" onAction="#buttonDepartmentThirdPressed" prefHeight="37.0" prefWidth="263.0" stylesheets="@/css/toggleButton.css" text="Третий департамент" />
+         </children>
+      </Pane>
+      <Label layoutX="74.0" layoutY="16.0" style="-fx-background-color: white;" text="Департаменты">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </Label>
+      <TableView layoutX="284.0" layoutY="42.0" prefHeight="526.0" prefWidth="1068.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <ToggleButton fx:id="tButtonJanuary" layoutX="299.0" layoutY="13.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Январь" />
+      <ToggleButton fx:id="tButtonFebruary" layoutX="382.0" layoutY="13.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Февраль" />
+      <ToggleButton fx:id="tButtonMarch" layoutX="465.0" layoutY="13.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Март" />
+      <ToggleButton fx:id="tButtonApril" layoutX="548.0" layoutY="13.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Апрель" />
+      <ToggleButton fx:id="tButtonMay" layoutX="631.0" layoutY="13.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Май" />
+      <ToggleButton fx:id="tButtonJune" layoutX="714.0" layoutY="13.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Июнь" />
+      <ToggleButton fx:id="tButtonJuly" layoutX="797.0" layoutY="13.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Июль" />
+      <ToggleButton fx:id="tButtonAugust" layoutX="880.0" layoutY="13.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Август" />
+      <ToggleButton fx:id="tButtonSeptember" layoutX="963.0" layoutY="13.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="91.0" stylesheets="@/css/toggleButton.css" text="Сентябрь" />
+      <ToggleButton fx:id="tButtonOctober" layoutX="1054.0" layoutY="13.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Октябрь" />
+      <ToggleButton fx:id="tButtonNovember" layoutX="1137.0" layoutY="13.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Ноябрь" />
+      <ToggleButton fx:id="tButtonDecember" layoutX="1220.0" layoutY="13.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Декабрь" />
+      <Label fx:id="infoLabel" layoutX="22.0" layoutY="577.0" text="Выберите департамент и месяц, а затем нажмите &quot;обновить&quot;">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
