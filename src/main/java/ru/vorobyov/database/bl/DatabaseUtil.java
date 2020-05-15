@@ -14,7 +14,6 @@ import java.util.logging.Logger;
 public class DatabaseUtil {
 
     public static Connection getConnection() throws IOException {
-        Logger log = Logger.getLogger(DatabaseUtil.class.getName());
 
         Connection connection = null;
 
@@ -31,14 +30,12 @@ public class DatabaseUtil {
             //trying get access to db
             Class.forName(DB_DRIVER);
             connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
-            log.log(Level.FINE, "Connection ok");
+            System.out.println("Connection ok");
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-            log.log(Level.WARNING, "Connection ERROR: class not fond");
         } catch (SQLException e) {
             e.printStackTrace();
-            log.log(Level.WARNING, "Connection ERROR: SQL error");
         }
 
         return connection;
