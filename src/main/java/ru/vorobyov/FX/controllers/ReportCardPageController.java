@@ -91,15 +91,17 @@ public class ReportCardPageController {
     @FXML
     private WebView tableDate = new WebView();
 
+    URL url;
+
     private ObservableList<ReportCardData> workersData = FXCollections.observableArrayList();
 
     @FXML
     void update(ActionEvent event) {
+        workersData.clear();
         try {
             tbuttonDepartmentFirst.setText(new DepartmentService().getAll().get(0).getDepartment());
             tbuttonDepartmentSecond.setText(new DepartmentService().getAll().get(1).getDepartment());
             tbuttonDepartmentThird.setText(new DepartmentService().getAll().get(2).getDepartment());
-            infoLabel.setText("Выбирите департамент и месяц, а затем нажмите обновить");
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -113,22 +115,16 @@ public class ReportCardPageController {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+        //add workers info to table
         columnNameLasrName.setCellValueFactory(new PropertyValueFactory<ReportCardData, Integer>("nameLastName"));
         columnPosition.setCellValueFactory(new PropertyValueFactory<ReportCardData, String>("position"));
         columnWorkerId.setCellValueFactory(new PropertyValueFactory<ReportCardData, Integer>("workerId"));
 
         tableCardReport.setItems(workersData);
 
-        PageConverter pageConverter = new PageConverter();
-        File file = pageConverter.getConvertedFile();
-
-        try {
-            URL url= file.toURI().toURL();
+        //add table with dates
+        if(url != null)
             tableDate.getEngine().load(url.toString());
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
 
     }
 
@@ -136,7 +132,7 @@ public class ReportCardPageController {
         Statement stmt = null;
         Connection connection = DatabaseUtil.getConnection();
         stmt = connection.createStatement();
-        String sql = "SELECT concat(NAME, LAST_NAME), POSITION, WORKER_ID FROM WORKER";
+        String sql = "SELECT concat_ws(' ', NAME, LAST_NAME), POSITION, WORKER_ID FROM WORKER";
         StringBuilder sb = new StringBuilder(sql);
 
         if(tbuttonDepartmentFirst.isSelected()) {
@@ -145,16 +141,29 @@ public class ReportCardPageController {
             sb.append(" WHERE DEPARTMENT = " + "'" + tbuttonDepartmentSecond.getText() + "'" + ";");
         } else if(tbuttonDepartmentThird.isSelected()) {
             sb.append(" WHERE DEPARTMENT = " + "'" + tbuttonDepartmentThird.getText() + "'" + ";");
+        } else {
+            sb = new StringBuilder("");
+            infoLabel.setText("Выбирите департамент и месяц, а затем нажмите обновить");
         }
 
         sql = new String(sb);
         System.out.println(sql);
-        ResultSet rst = stmt.executeQuery(sql);
 
-        while (rst.next()){
-            workersData.add(new ReportCardData(rst.getString(1), rst.getString(2), rst.getInt(3)));
-            System.out.println(rst.getString(1));
+        if(!sql.equals("")) {
+            //getting html for dates
+            PageConverter pageConverter = new PageConverter();
+            File file = pageConverter.getConvertedFile();
+            url = file.toURI().toURL();
+
+            //execute query for table
+            ResultSet rst = stmt.executeQuery(sql);
+
+            while (rst.next()){
+                workersData.add(new ReportCardData(rst.getString(1), rst.getString(2), rst.getInt(3)));
+                System.out.println(rst.getString(1));
+            }
         }
+
     }
 
     @FXML
