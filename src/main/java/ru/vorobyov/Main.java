@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 /**
  * @author Arkirka
  */
-
+//for creating project used jdk1.8.0_231
 public class Main extends Application {
     //set scene path
     private static String FX_URL = "/fxml\\welcomePage.fxml";
