@@ -7,11 +7,15 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.web.WebView;
+import ru.vorobyov.FX.templater.PageConverter;
 import ru.vorobyov.database.bl.DatabaseUtil;
 import ru.vorobyov.database.entity.ReportCardData;
 import ru.vorobyov.database.service.DepartmentService;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -116,7 +120,16 @@ public class ReportCardPageController {
 
         tableCardReport.setItems(workersData);
 
-        tableDate.getEngine().load("http://docs.oracle.com/javafx/");
+        PageConverter pageConverter = new PageConverter();
+        File file = pageConverter.getConvertedFile();
+
+        try {
+            URL url= file.toURI().toURL();
+            tableDate.getEngine().load(url.toString());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
     }
 
     private void initData() throws IOException, SQLException {
