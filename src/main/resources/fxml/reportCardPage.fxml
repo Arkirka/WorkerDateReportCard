@@ -28,34 +28,34 @@
         <columns>
           <TableColumn fx:id="columnNameLasrName" prefWidth="105.0" text="ФИО" />
           <TableColumn fx:id="columnPosition" prefWidth="71.0" text="Должность" />
-            <TableColumn fx:id="columnWorkerId" prefWidth="52.0" text="Таб. №" />
+            <TableColumn fx:id="columnWorkerId" prefWidth="55.0" text="Таб. №" />
         </columns>
       </TableView>
-      <ToggleButton fx:id="tButtonJanuary" layoutX="340.0" layoutY="13.0" mnemonicParsing="false" onAction="#tButtonJanuaryPressed" prefHeight="23.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Январь" />
-      <ToggleButton fx:id="tButtonFebruary" layoutX="423.0" layoutY="13.0" mnemonicParsing="false" onAction="#tButtonFebruaryPressed" prefHeight="23.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Февраль" />
-      <ToggleButton fx:id="tButtonMay" layoutX="672.0" layoutY="13.0" mnemonicParsing="false" onAction="#tButtonMayPressed" prefHeight="23.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Май" />
-      <ToggleButton fx:id="tButtonJune" layoutX="755.0" layoutY="13.0" mnemonicParsing="false" onAction="#tButtonJunePressed" prefHeight="23.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Июнь" />
-      <ToggleButton fx:id="tButtonJuly" layoutX="838.0" layoutY="13.0" mnemonicParsing="false" onAction="#tButtonJulyPressed" prefHeight="23.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Июль" />
-      <ToggleButton fx:id="tButtonAugust" layoutX="921.0" layoutY="13.0" mnemonicParsing="false" onAction="#tButtonAugustPressed" prefHeight="23.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Август" />
-      <ToggleButton fx:id="tButtonSeptember" layoutX="1004.0" layoutY="13.0" mnemonicParsing="false" onAction="#tButtonSeptemberPressed" prefHeight="29.0" prefWidth="91.0" stylesheets="@/css/toggleButton.css" text="Сентябрь" />
-      <ToggleButton fx:id="tButtonOctober" layoutX="1095.0" layoutY="13.0" mnemonicParsing="false" onAction="#tButtonOctoberPressed" prefHeight="23.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Октябрь" />
-      <ToggleButton fx:id="tButtonNovember" layoutX="1178.0" layoutY="13.0" mnemonicParsing="false" onAction="#tButtonNovemberPressed" prefHeight="23.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Ноябрь" />
-      <ToggleButton fx:id="tButtonDecember" layoutX="1261.0" layoutY="13.0" mnemonicParsing="false" onAction="#tButtonDecemberPressed" prefHeight="23.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Декабрь" />
       <Label fx:id="infoLabel" layoutX="22.0" layoutY="577.0" text="Нажмите &quot;обновить&quot; для получения списка департаментов">
          <font>
             <Font name="Calibri" size="18.0" />
          </font>
       </Label>
-      <TabPane layoutX="568.0" layoutY="42.0" prefHeight="526.0" prefWidth="784.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="567.0" layoutY="32.0" prefHeight="535.0" prefWidth="784.0" stylesheets="@/css/tabPane.css" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Untitled Tab 1">
+          <Tab closable="false" text="Даты">
                <content>
-                  <WebView fx:id="tableDate" prefHeight="516.0" prefWidth="760.0" />
+                  <WebView fx:id="tableDate" prefHeight="510.0" prefWidth="760.0" />
                </content>
           </Tab>
         </tabs>
       </TabPane>
-      <ToggleButton fx:id="tButtonMarch" layoutX="506.0" layoutY="13.0" mnemonicParsing="false" onAction="#tButtonMarchPressed" prefHeight="23.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Март" />
-      <ToggleButton fx:id="tButtonApril" layoutX="589.0" layoutY="13.0" mnemonicParsing="false" onAction="#tButtonAprilPressed" prefHeight="23.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Апрель" />
+      <ToggleButton fx:id="tButtonApril" layoutX="589.0" layoutY="9.0" mnemonicParsing="false" onAction="#tButtonAprilPressed" prefHeight="29.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Апрель" />
+      <ToggleButton fx:id="tButtonMarch" layoutX="506.0" layoutY="9.0" mnemonicParsing="false" onAction="#tButtonMarchPressed" prefHeight="29.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Март" />
+      <ToggleButton fx:id="tButtonSeptember" layoutX="1004.0" layoutY="5.0" mnemonicParsing="false" onAction="#tButtonSeptemberPressed" prefHeight="37.0" prefWidth="91.0" stylesheets="@/css/toggleButton.css" text="Сентябрь" />
+      <ToggleButton fx:id="tButtonOctober" layoutX="1095.0" layoutY="9.0" mnemonicParsing="false" onAction="#tButtonOctoberPressed" prefHeight="29.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Октябрь" />
+      <ToggleButton fx:id="tButtonNovember" layoutX="1178.0" layoutY="9.0" mnemonicParsing="false" onAction="#tButtonNovemberPressed" prefHeight="29.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Ноябрь" />
+      <ToggleButton fx:id="tButtonDecember" layoutX="1261.0" layoutY="9.0" mnemonicParsing="false" onAction="#tButtonDecemberPressed" prefHeight="29.0" prefWidth="91.0" stylesheets="@/css/toggleButton.css" text="Декабрь" />
+      <ToggleButton fx:id="tButtonJune" layoutX="755.0" layoutY="9.0" mnemonicParsing="false" onAction="#tButtonJunePressed" prefHeight="29.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Июнь" />
+      <ToggleButton fx:id="tButtonJuly" layoutX="838.0" layoutY="9.0" mnemonicParsing="false" onAction="#tButtonJulyPressed" prefHeight="29.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Июль" />
+      <ToggleButton fx:id="tButtonMay" layoutX="672.0" layoutY="9.0" mnemonicParsing="false" onAction="#tButtonMayPressed" prefHeight="29.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Май" />
+      <ToggleButton fx:id="tButtonAugust" layoutX="921.0" layoutY="9.0" mnemonicParsing="false" onAction="#tButtonAugustPressed" prefHeight="29.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Август" />
+      <ToggleButton fx:id="tButtonJanuary" layoutX="340.0" layoutY="9.0" mnemonicParsing="false" onAction="#tButtonJanuaryPressed" prefHeight="29.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Январь" />
+      <ToggleButton fx:id="tButtonFebruary" layoutX="423.0" layoutY="9.0" mnemonicParsing="false" onAction="#tButtonFebruaryPressed" prefHeight="29.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Февраль" />
    </children>
 </AnchorPane>

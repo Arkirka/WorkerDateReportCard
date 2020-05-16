@@ -17,3 +17,8 @@
     -fx-background-color: #a8e57e;
     -fx-text-fill: black;
 }
+
+.toggle-button:disabled {
+    -fx-background-color: white;
+    -fx-alternative-column-fill-visible: true;
+}

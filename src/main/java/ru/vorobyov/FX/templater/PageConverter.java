@@ -9,7 +9,9 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class PageConverter {
@@ -43,7 +45,9 @@ public class PageConverter {
     private void createDataModel(){
         //String - name of var in ftl, object - object in java that we need to put on var in ftl
         map = new HashMap<>();
-        map.put("name", "Denis");
+        List<Integer> tableHeads = new ArrayList<>();
+        for(int i = 0; i < 31; i++) tableHeads.add(i, i+1);
+        map.put("table_heads", tableHeads);
         // map.put( name of var, object in java);
     }
 
