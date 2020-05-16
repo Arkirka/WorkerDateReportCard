@@ -11,14 +11,16 @@ import javafx.stage.Stage;
  */
 
 public class Main extends Application {
+    //set scene path
     private static String FX_URL = "/fxml\\welcomePage.fxml";
     private static Stage stage = null;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        //run app
         Parent root = FXMLLoader.load(getClass().getResource(getFxUrl()));
         setStage(new Stage());
-        stage.setTitle("Interaction with the Database");
+        stage.setTitle("Табель учёта времени");
         stage.setScene(new Scene(root, 601, 433));
         stage.show();
     }

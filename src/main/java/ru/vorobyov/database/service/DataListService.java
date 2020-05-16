@@ -11,8 +11,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+//class for getting data to date table
 public class DataListService {
-
+    //count of workers
     private int idCount;
 
     public List<Accounting> getDataList(String sql) throws SQLException, IOException {

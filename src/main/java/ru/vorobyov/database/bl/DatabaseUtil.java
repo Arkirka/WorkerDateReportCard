@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 
 public class DatabaseUtil {
 
+    //class for connection with database
     public static Connection getConnection() throws IOException {
 
         Connection connection = null;

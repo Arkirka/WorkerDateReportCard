@@ -98,6 +98,7 @@ public class ReportCardPageController {
 
     private ObservableList<ReportCardData> workersData = FXCollections.observableArrayList();
 
+    //event on button buttonUpdate, text "Обновить"
     @FXML
     void update(ActionEvent event) {
         workersData.clear();
@@ -130,7 +131,7 @@ public class ReportCardPageController {
             tableDate.getEngine().load(url.toString());
 
     }
-
+    //init data from databases
     private void initData() throws IOException, SQLException {
         //init configs
         Statement stmt = null;
@@ -210,7 +211,7 @@ public class ReportCardPageController {
         }
 
     }
-
+    //set disable to unselected buttons
     @FXML
     void buttonDepartmentFirstPressed(ActionEvent event) {
         if(tbuttonDepartmentFirst.isSelected()){

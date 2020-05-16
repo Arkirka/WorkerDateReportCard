@@ -21,6 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+//class for creating html page from template(ftl)
 public class PageConverter {
 
     private Configuration cfg;
