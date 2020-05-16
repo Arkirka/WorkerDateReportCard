@@ -132,13 +132,15 @@ public class ReportCardPageController {
     }
 
     private void initData() throws IOException, SQLException {
+        //init configs
         Statement stmt = null;
         Connection connection = DatabaseUtil.getConnection();
         stmt = connection.createStatement();
         String sql = "SELECT concat_ws(' ', NAME, LAST_NAME), POSITION, WORKER_ID FROM WORKER";
-        String sqlSecond = "SELECT WORKER_ID, ENCODING, DAY FROM ACCOUNTING WHERE DAY BETWEEN '2020-01-01' AND '2020-01-31' ORDER BY WORKER_ID";
+        String sqlSecond = "SELECT WORKER_ID, ENCODING, DAY FROM ACCOUNTING";
         StringBuilder sb = new StringBuilder(sql);
 
+        //set limitations for departments
         if(tbuttonDepartmentFirst.isSelected()) {
             sb.append(" WHERE DEPARTMENT = " + "'" + tbuttonDepartmentFirst.getText() + "'" + ";");
         } else if(tbuttonDepartmentSecond.isSelected()) {
@@ -150,10 +152,43 @@ public class ReportCardPageController {
             infoLabel.setText("Выбирите департамент и месяц, а затем нажмите обновить");
         }
 
+        //set sql for workers table
         sql = new String(sb);
         System.out.println(sql);
 
+        //set limitations for date table
+        sb = new StringBuilder(sqlSecond);
+        if(tButtonJanuary.isSelected()) {
+            sb.append(" WHERE DAY BETWEEN '2020-01-01' AND '2020-01-31' ORDER BY WORKER_ID");
+        } else if(tButtonFebruary.isSelected()) {
+            sb.append(" WHERE DAY BETWEEN '2020-02-01' AND '2020-02-29' ORDER BY WORKER_ID");
+        } else if(tButtonMarch.isSelected()) {
+            sb.append(" WHERE DAY BETWEEN '2020-03-01' AND '2020-03-31' ORDER BY WORKER_ID");
+        } else if(tButtonApril.isSelected()) {
+            sb.append(" WHERE DAY BETWEEN '2020-04-01' AND '2020-04-30' ORDER BY WORKER_ID");
+        } else if(tButtonMay.isSelected()) {
+            sb.append(" WHERE DAY BETWEEN '2020-05-01' AND '2020-05-31' ORDER BY WORKER_ID");
+        } else if(tButtonJune.isSelected()) {
+            sb.append(" WHERE DAY BETWEEN '2020-06-01' AND '2020-06-30' ORDER BY WORKER_ID");
+        } else if(tButtonJuly.isSelected()) {
+            sb.append(" WHERE DAY BETWEEN '2020-07-01' AND '2020-07-31' ORDER BY WORKER_ID");
+        } else if(tButtonAugust.isSelected()) {
+            sb.append(" WHERE DAY BETWEEN '2020-08-01' AND '2020-08-31' ORDER BY WORKER_ID");
+        } else if(tButtonSeptember.isSelected()) {
+            sb.append(" WHERE DAY BETWEEN '2020-09-01' AND '2020-09-30' ORDER BY WORKER_ID");
+        } else if(tButtonOctober.isSelected()) {
+            sb.append(" WHERE DAY BETWEEN '2020-10-01' AND '2020-10-31' ORDER BY WORKER_ID");
+        } else if(tButtonNovember.isSelected()) {
+            sb.append(" WHERE DAY BETWEEN '2020-11-01' AND '2020-11-30' ORDER BY WORKER_ID");
+        } else if(tButtonDecember.isSelected()) {
+            sb.append(" WHERE DAY BETWEEN '2020-12-01' AND '2020-12-31' ORDER BY WORKER_ID");
+        }  else {
+            sb = new StringBuilder("");
+            infoLabel.setText("Выбирите департамент и месяц, а затем нажмите обновить");
+        }
 
+        sqlSecond = new String(sb);
+        System.out.println(sqlSecond);
 
         if(!sql.equals("") && !sqlSecond.equals("")) {
             //getting html for dates
