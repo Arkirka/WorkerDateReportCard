@@ -9,7 +9,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.web.WebView;
 import ru.vorobyov.FX.templater.PageConverter;
 import ru.vorobyov.database.bl.DatabaseUtil;
+import ru.vorobyov.database.entity.Accounting;
 import ru.vorobyov.database.entity.ReportCardData;
+import ru.vorobyov.database.service.DataListService;
 import ru.vorobyov.database.service.DepartmentService;
 
 import java.io.File;
@@ -20,6 +22,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 public class ReportCardPageController {
 
@@ -133,6 +136,7 @@ public class ReportCardPageController {
         Connection connection = DatabaseUtil.getConnection();
         stmt = connection.createStatement();
         String sql = "SELECT concat_ws(' ', NAME, LAST_NAME), POSITION, WORKER_ID FROM WORKER";
+        String sqlSecond = "SELECT WORKER_ID, ENCODING, DAY FROM ACCOUNTING WHERE DAY BETWEEN '2020-01-01' AND '2020-01-31' ORDER BY WORKER_ID";
         StringBuilder sb = new StringBuilder(sql);
 
         if(tbuttonDepartmentFirst.isSelected()) {
@@ -149,9 +153,15 @@ public class ReportCardPageController {
         sql = new String(sb);
         System.out.println(sql);
 
-        if(!sql.equals("")) {
+
+
+        if(!sql.equals("") && !sqlSecond.equals("")) {
             //getting html for dates
             PageConverter pageConverter = new PageConverter();
+            DataListService dataListService = new DataListService();
+            List<Accounting> dataList = dataListService.getDataList(sqlSecond);
+            pageConverter.putDataListInTable(dataList, dataListService.getIdCount());
+
             File file = pageConverter.getConvertedFile();
             url = file.toURI().toURL();
 

@@ -4,11 +4,18 @@ import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import freemarker.template.TemplateExceptionHandler;
+import ru.vorobyov.database.bl.DatabaseUtil;
+import ru.vorobyov.database.entity.Accounting;
+import ru.vorobyov.database.service.DataListService;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,7 +24,7 @@ import java.util.Map;
 public class PageConverter {
 
     private Configuration cfg;
-    Map<String, Object> map;
+    Map<String, Object> map = new HashMap<>();
     Template template;
 
     public File getConvertedFile() {
@@ -42,13 +49,17 @@ public class PageConverter {
         return new File(path);
     }
 
-    private void createDataModel(){
+    public void createDataModel(){
         //String - name of var in ftl, object - object in java that we need to put on var in ftl
-        map = new HashMap<>();
         List<Integer> tableHeads = new ArrayList<>();
         for(int i = 0; i < 31; i++) tableHeads.add(i, i+1);
         map.put("table_heads", tableHeads);
         // map.put( name of var, object in java);
+    }
+
+    public void putDataListInTable(List<Accounting> lists, int idCount) {
+        map.put("data_list", lists);
+        map.put("idCount", idCount);
     }
 
     private void instantiateConfiguration() throws IOException {
@@ -58,4 +69,6 @@ public class PageConverter {
         cfg.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
         template = cfg.getTemplate("tableDate.ftl");
     }
+
+
 }

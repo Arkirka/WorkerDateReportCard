@@ -113,4 +113,5 @@ public class AccountingService implements AccountingDAO {
         stmt.execute("DELETE FROM ACCOUNTING");
         stmt.close();
     }
+
 }

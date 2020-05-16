@@ -8,6 +8,7 @@ public class Accounting {
     private String encoding;
     private int workerId;
 
+
     public Date getDay() {
         return day;
     }
