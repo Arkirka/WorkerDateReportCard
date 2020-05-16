@@ -1,0 +1,49 @@
+table.dateTable {
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid #1C6EA4;
+    background-color: #EEEEEE;
+    width: 96%;
+    text-align: left;
+    border-collapse: collapse;
+}
+table.dateTable td, table.dateTable th {
+    border: 1px solid #AAAAAA;
+    padding: 3px 6px;
+}
+table.dateTable tbody td {
+    font-size: 12px;
+    color: #333333;
+}
+table.dateTable tr:nth-child(even) {
+    background: #D0F5CA;
+}
+table.dateTable thead {
+    background: #D8D8D8;
+    background: -moz-linear-gradient(top, #e2e2e2 0%, #dcdcdc 66%, #D8D8D8 100%);
+    background: -webkit-linear-gradient(top, #e2e2e2 0%, #dcdcdc 66%, #D8D8D8 100%);
+    background: linear-gradient(to bottom, #e2e2e2 0%, #dcdcdc 66%, #D8D8D8 100%);
+    border-bottom: 1px solid #444444;
+}
+table.dateTable thead th {
+    font-size: 13px;
+    font-weight: bold;
+    color: #000000;
+    border-left: 1px solid #D0E4F5;
+}
+table.dateTable thead th:first-child {
+    border-left: none;
+}
+
+table.dateTable tfoot td {
+    font-size: 10px;
+}
+table.dateTable tfoot .links {
+    text-align: right;
+}
+table.dateTable tfoot .links a{
+    display: inline-block;
+    background: #1C6EA4;
+    color: #FFFFFF;
+    padding: 2px 8px;
+    border-radius: 5px;
+}

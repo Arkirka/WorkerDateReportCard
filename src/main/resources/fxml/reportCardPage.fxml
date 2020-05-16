@@ -24,27 +24,27 @@
             <Font name="Century Gothic" size="18.0" />
          </font>
       </Label>
-      <TableView fx:id="tableCardReport" layoutX="335.0" layoutY="42.0" prefHeight="526.0" prefWidth="232.0">
-        <columns>
-          <TableColumn fx:id="columnNameLasrName" prefWidth="105.0" text="ФИО" />
-          <TableColumn fx:id="columnPosition" prefWidth="71.0" text="Должность" />
-            <TableColumn fx:id="columnWorkerId" prefWidth="55.0" text="Таб. №" />
-        </columns>
-      </TableView>
       <Label fx:id="infoLabel" layoutX="22.0" layoutY="577.0" text="Нажмите &quot;обновить&quot; для получения списка департаментов">
          <font>
             <Font name="Calibri" size="18.0" />
          </font>
       </Label>
-      <TabPane layoutX="567.0" layoutY="32.0" prefHeight="535.0" prefWidth="784.0" stylesheets="@/css/tabPane.css" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="567.0" layoutY="29.0" prefHeight="540.0" prefWidth="784.0" stylesheets="@/css/tabPane.css" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab closable="false" text="Даты">
                <content>
-                  <WebView fx:id="tableDate" prefHeight="510.0" prefWidth="760.0" />
+                  <WebView fx:id="tableDate" prefHeight="509.0" prefWidth="760.0" />
                </content>
           </Tab>
         </tabs>
       </TabPane>
+      <TableView fx:id="tableCardReport" layoutX="335.0" layoutY="42.0" prefHeight="526.0" prefWidth="238.0">
+        <columns>
+          <TableColumn fx:id="columnNameLasrName" prefWidth="104.0" text="ФИО" />
+          <TableColumn fx:id="columnPosition" prefWidth="85.0" text="Должность" />
+            <TableColumn fx:id="columnWorkerId" prefWidth="48.0" text="Таб. №" />
+        </columns>
+      </TableView>
       <ToggleButton fx:id="tButtonApril" layoutX="589.0" layoutY="9.0" mnemonicParsing="false" onAction="#tButtonAprilPressed" prefHeight="29.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Апрель" />
       <ToggleButton fx:id="tButtonMarch" layoutX="506.0" layoutY="9.0" mnemonicParsing="false" onAction="#tButtonMarchPressed" prefHeight="29.0" prefWidth="83.0" stylesheets="@/css/toggleButton.css" text="Март" />
       <ToggleButton fx:id="tButtonSeptember" layoutX="1004.0" layoutY="5.0" mnemonicParsing="false" onAction="#tButtonSeptemberPressed" prefHeight="37.0" prefWidth="91.0" stylesheets="@/css/toggleButton.css" text="Сентябрь" />

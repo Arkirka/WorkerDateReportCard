@@ -1,14 +1,17 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="windows-1251">
+    <link href="../html/css/tableDate.css" rel="stylesheet" type="text/html">
     <title>Title</title>
 </head>
-<body style="font-size: 10,5pt">
-   <table>
+<body>
+   <table class="dateTable">
        <tr>
            <#list table_heads as table_head>
-               <td>${table_head_index + 1}</td>
+               <th>${table_head_index + 1}</th>
            </#list>
        </tr>
 
