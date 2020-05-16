@@ -7,11 +7,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.vorobyov.FX.controllers.WelcomePageController">
    <children>
-      <Button fx:id="buttonToReportCard" layoutX="13.0" layoutY="188.0" mnemonicParsing="false" onAction="#toReportCard" prefHeight="41.0" prefWidth="222.0" text="Посмотреть табель учёта времени" />
-      <Button fx:id="buttonToEdit" layoutX="366.0" layoutY="188.0" mnemonicParsing="false" onAction="#toEdit" prefHeight="41.0" prefWidth="222.0" text="Редактировать базу данных" />
+      <Button fx:id="buttonToReportCard" layoutX="13.0" layoutY="188.0" mnemonicParsing="false" onAction="#toReportCard" prefHeight="41.0" prefWidth="271.0" stylesheets="@/css/button.css" text="Посмотреть табель учёта времени" />
+      <Button fx:id="buttonToEdit" disable="true" layoutX="317.0" layoutY="188.0" mnemonicParsing="false" onAction="#toEdit" prefHeight="41.0" prefWidth="271.0" text="Редактировать базу данных" />
       <Label layoutX="235.0" layoutY="36.0" text="Здравствуйте! ">
          <font>
             <Font name="Century Gothic Italic" size="18.0" />
