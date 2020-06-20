@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="511.0" prefWidth="889.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.vorobyov.FX.controllers.TimekeeperPageController">
+   <children>
+      <Label layoutX="69.0" layoutY="77.0" text="ID рабочего:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="69.0" layoutY="123.0" text="Месяц(в цифрах):">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="69.0" layoutY="170.0" text="День:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="69.0" layoutY="217.0" text="Кодировка:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textId" layoutX="370.0" layoutY="78.0" />
+      <TextField fx:id="textMonth" layoutX="370.0" layoutY="124.0" />
+      <TextField fx:id="textDay" layoutX="370.0" layoutY="171.0" />
+      <TextField fx:id="textEncoding" layoutX="370.0" layoutY="218.0" />
+      <Button fx:id="buttonUpdate" layoutX="355.0" layoutY="365.0" mnemonicParsing="false" onAction="#updateEntity" text="Поставить отметку">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Label fx:id="labelInfo" layoutX="292.0" layoutY="24.0" text="Введите данные и поставьте отметку">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

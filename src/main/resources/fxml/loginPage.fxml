@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.vorobyov.FX.controllers.LoginPageController">
+   <children>
+      <TextField fx:id="textLogin" layoutX="226.0" layoutY="107.0" />
+      <TextField fx:id="textPassword" layoutX="226.0" layoutY="200.0" />
+      <Label fx:id="infoLabel" layoutX="206.0" layoutY="55.0" text="Введите логин и пароль">
+         <font>
+            <Font name="Calibri Italic" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="buttonToEdit" layoutX="243.0" layoutY="289.0" mnemonicParsing="false" onAction="#toEdit" prefHeight="38.0" prefWidth="115.0" text="Войти">
+         <font>
+            <Font name="Calibri" size="17.0" />
+         </font>
+      </Button>
+      <Label layoutX="134.0" layoutY="201.0" text="Password">
+         <font>
+            <Font name="Century Gothic" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="150.0" layoutY="109.0" text="Login">
+         <font>
+            <Font name="Century Gothic" size="17.0" />
+         </font>
+      </Label>
+      <Button fx:id="buttonPasswords" layoutX="385.0" layoutY="198.0" mnemonicParsing="false" onAction="#toPasswords" prefHeight="25.0" prefWidth="31.0" style="-fx-background-radius: 100;" text="?">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

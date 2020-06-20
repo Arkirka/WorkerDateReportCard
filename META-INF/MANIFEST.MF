@@ -1,4 +1,0 @@
-Manifest-Version: 1.0
-Main-Class: D:\myfolder\nauka\WorkerDateReportCard\src\main\java\ru\voro
- byov\Main.java
-

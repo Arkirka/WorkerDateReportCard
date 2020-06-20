@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import ru.vorobyov.FX.pageCreator.FXPageCreator;
 import ru.vorobyov.database.bl.DatabaseUtil;
 import ru.vorobyov.database.entity.*;
 import ru.vorobyov.database.service.*;
@@ -36,28 +37,53 @@ public class WelcomePageController {
                 e.printStackTrace();
             }
 
-            Parent root = FXMLLoader.load(getClass().getResource("/fxml\\reportCardPage.fxml"));
-            reportCardPage = new Stage();
-            reportCardPage.setScene(new Scene(root, 1366, 599));
-            reportCardPage.setResizable(false);
-            reportCardPage.show();
+            new FXPageCreator().createPage("/fxml\\reportCardPage.fxml", 1366, 599);
+            
         } catch (IOException er) {
             er.printStackTrace();
         }
     }
 
     @FXML
-    void toEdit(ActionEvent event) {
+    void toEdit(ActionEvent event) throws SQLException {
+        try {
+            Connection connection = DatabaseUtil.getConnection();
+           /* try {
+                createTables();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }*/
 
+            if(!new RolesService().getAll().isEmpty()) new RolesService().truncateTable();
+
+            RolesService rolesService = new RolesService();
+            rolesService.createTable();
+            Roles roles = new Roles();
+            roles.setLogin("Admin");
+            roles.setPassword("Admin");
+            new RolesService().add(roles);
+            roles.setLogin("Timekeeper");
+            roles.setPassword("Timekeeper");
+            new  RolesService().add(roles);
+
+            new FXPageCreator().createPage("/fxml\\loginPage.fxml", 600, 400);
+
+        } catch (IOException er) {
+            er.printStackTrace();
+        }
     }
 
     public void createTables() throws IOException, SQLException {
 
+        if(!new RolesService().getAll().isEmpty()) new RolesService().truncateTable();
         if(!new AccountingService().getAll().isEmpty()) new AccountingService().truncateTable();
         if(!new EncodingService().getAll().isEmpty()) new EncodingService().truncateTable();
         if(!new WorkerService().getAll().isEmpty()) new WorkerService().truncateTable();
         if(!new DepartmentService().getAll().isEmpty()) new DepartmentService().truncateTable();
         if(!new JobInfoService().getAll().isEmpty()) new JobInfoService().truncateTable();
+
+        RolesService rolesService = new RolesService();
+        rolesService.createTable();
 
         DepartmentService departmentService = new DepartmentService();
         departmentService.createTable();
@@ -79,6 +105,13 @@ public class WelcomePageController {
         AccountingService accountingService = new AccountingService();
         accountingService.createTable();
 
+        Roles roles = new Roles();
+        roles.setLogin("Admin");
+        roles.setPassword("Admin");
+        new RolesService().add(roles);
+        roles.setLogin("Timekeeper");
+        roles.setPassword("Timekeeper");
+        new RolesService().add(roles);
 
         Department department = new Department();
         department.setDepartment("Автоматизация антипригарных стульев");
