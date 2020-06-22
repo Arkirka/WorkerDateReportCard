@@ -21,7 +21,7 @@ public class EncodingService implements EncodingDAO {
     public void add(Encoding encoding) {
         PreparedStatement preparedStatement = null;
 
-        String sql = "INSERT INTO ENCODING (ENCODING) VALUES(?)";
+        String sql = "MERGE INTO ENCODING KEY (ENCODING) VALUES(?)";
 
         try {
             preparedStatement = connection.prepareStatement(sql);

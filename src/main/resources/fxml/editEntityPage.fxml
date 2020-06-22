@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="336.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.vorobyov.FX.controllers.EditEntityPageController">
+   <children>
+      <TextField fx:id="textDepartment" layoutX="272.0" layoutY="221.0" />
+      <Label layoutX="43.0" layoutY="220.0" text="Департамент:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="225.0" layoutY="21.0" text="Редактирование">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="buttonEntity" layoutX="303.0" layoutY="272.0" mnemonicParsing="false" onAction="#addEntity" prefHeight="38.0" prefWidth="86.0" text="Добавить">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <RadioButton fx:id="rButtonRemoteWork" layoutX="272.0" layoutY="194.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="16.0" />
+      <TextField fx:id="textDay" layoutX="374.0" layoutY="140.0" prefHeight="25.0" prefWidth="46.0" promptText="День" />
+      <TextField fx:id="textMonth" layoutX="319.0" layoutY="140.0" prefHeight="25.0" prefWidth="53.0" promptText="Месяц" />
+      <TextField fx:id="textAge" layoutX="271.0" layoutY="167.0" prefHeight="25.0" prefWidth="53.0" />
+      <TextField fx:id="textYear" layoutX="271.0" layoutY="140.0" prefHeight="25.0" prefWidth="46.0" promptText="Год" />
+      <TextField fx:id="textLastName" layoutX="271.0" layoutY="113.0" />
+      <TextField fx:id="textName" layoutX="271.0" layoutY="86.0" />
+      <TextField fx:id="textId" layoutX="271.0" layoutY="59.0" />
+      <Label layoutX="43.0" layoutY="58.0" text="Таб. номер:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="43.0" layoutY="193.0" text="Удалённая работа:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="43.0" layoutY="166.0" text="Возраст:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="43.0" layoutY="139.0" text="День рождения:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="43.0" layoutY="112.0" text="Фамилия:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="43.0" layoutY="85.0" text="Имя:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

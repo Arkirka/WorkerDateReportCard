@@ -21,7 +21,7 @@ public class DepartmentService implements DepartmentDAO {
     public void add(Department department) {
         PreparedStatement preparedStatement = null;
 
-        String sql = "INSERT INTO DEPARTMENT (DEPARTMENT) VALUES(?)";
+        String sql = "MERGE INTO DEPARTMENT KEY (DEPARTMENT) VALUES(?)";
 
         try {
             preparedStatement = connection.prepareStatement(sql);

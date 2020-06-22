@@ -6,24 +6,22 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="486.0" prefWidth="980.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.vorobyov.FX.controllers.DatabaseEditPageController">
    <children>
       <TableView fx:id="tableWorkers" layoutX="21.0" layoutY="97.0" prefHeight="310.0" prefWidth="919.0">
         <columns>
-          <TableColumn fx:id="columnPreview" prefWidth="143.0" text="Превью" />
-          <TableColumn fx:id="columnName" prefWidth="67.0" text="Имя" />
-            <TableColumn fx:id="columnLastName" prefWidth="83.0" text="Фамилия" />
-            <TableColumn fx:id="columnBirthday" prefWidth="119.0" text="Дата рождения" />
-            <TableColumn fx:id="columnAge" prefWidth="52.0" text="Возраст" />
-            <TableColumn fx:id="columnPosition" prefWidth="194.0" text="Должность" />
-            <TableColumn fx:id="columnRemoteWork" prefWidth="116.0" text="Удалённая работа" />
-            <TableColumn fx:id="columnAddress" prefWidth="144.0" text="Адрес проживания" />
+          <TableColumn fx:id="columnName" prefWidth="138.0" text="Имя" />
+            <TableColumn fx:id="columnLastName" prefWidth="137.0" text="Фамилия" />
+            <TableColumn fx:id="columnBirthday" prefWidth="153.0" text="Дата рождения" />
+            <TableColumn fx:id="columnAge" prefWidth="79.0" text="Возраст" />
+            <TableColumn fx:id="columnPosition" prefWidth="131.0" text="Должность" />
+            <TableColumn fx:id="columnRemoteWork" prefWidth="128.0" text="Удалённая работа" />
+            <TableColumn fx:id="columnAddress" prefWidth="152.0" text="Адрес проживания" />
         </columns>
       </TableView>
-      <Button fx:id="buttonAdd" layoutX="72.0" layoutY="46.0" mnemonicParsing="false" onAction="#toAddPage" prefHeight="39.0" prefWidth="113.0" text="Добавить" />
-      <Button fx:id="buttonEdit" layoutX="232.0" layoutY="46.0" mnemonicParsing="false" onAction="#toEditPage" prefHeight="39.0" prefWidth="141.0" text="Редактировать" />
-      <Button fx:id="buttonDelete" layoutX="424.0" layoutY="46.0" mnemonicParsing="false" onAction="#toDeletePage" prefHeight="39.0" prefWidth="113.0" text="Удалить" />
-      <Button fx:id="buttonUpdate" layoutX="775.0" layoutY="425.0" mnemonicParsing="false" onAction="#updateTable" prefHeight="39.0" prefWidth="165.0" text="Обновить таблицу" />
+      <Button fx:id="buttonAdd" layoutX="72.0" layoutY="46.0" mnemonicParsing="false" onAction="#toAddPage" prefHeight="39.0" prefWidth="113.0" stylesheets="@/css/button.css" text="Добавить" />
+      <Button fx:id="buttonEdit" layoutX="232.0" layoutY="46.0" mnemonicParsing="false" onAction="#toEditPage" prefHeight="39.0" prefWidth="141.0" stylesheets="@/css/button.css" text="Редактировать" />
+      <Button fx:id="buttonDelete" layoutX="424.0" layoutY="46.0" mnemonicParsing="false" onAction="#toDeletePage" prefHeight="39.0" prefWidth="113.0" stylesheets="@/css/button.css" text="Удалить" />
+      <Button fx:id="buttonUpdate" layoutX="775.0" layoutY="425.0" mnemonicParsing="false" onAction="#updateTable" prefHeight="39.0" prefWidth="165.0" stylesheets="@/css/button.css" text="Обновить таблицу" />
    </children>
 </AnchorPane>

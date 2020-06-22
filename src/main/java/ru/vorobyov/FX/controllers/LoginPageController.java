@@ -38,7 +38,7 @@ public class LoginPageController {
 
             if(textLogin.getText().equals( rolesList.get(0).getLogin() )) {
                 if(textPassword.getText().equals( rolesList.get(0).getPassword() )){
-                    new FXPageCreator().createPage("/fxml\\databaseEditPage.fxml", 1366, 599);
+                    new FXPageCreator().createPage("/fxml\\databaseEditPage.fxml", 980, 486);
                 } else {
                     infoLabel.setText("Пароль неверен");
                 }

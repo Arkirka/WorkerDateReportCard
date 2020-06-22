@@ -21,7 +21,7 @@ public class RolesService implements RolesDAO {
     public void add(Roles roles) {
         PreparedStatement preparedStatement = null;
 
-        String sql = "INSERT INTO ROLES (LOGIN, PASSWORD) VALUES(?, ?)";
+        String sql = "MERGE INTO ROLES KEY (LOGIN, PASSWORD) VALUES(?, ?)";
 
         try {
             preparedStatement = connection.prepareStatement(sql);

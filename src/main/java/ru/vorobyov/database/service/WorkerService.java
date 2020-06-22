@@ -19,7 +19,7 @@ public class WorkerService implements WorkerDAO {
     @Override
     public void add(Worker worker) {
         PreparedStatement preparedStatement = null;
-        String sql = "INSERT INTO WORKER (WORKER_ID, PREVIEW, NAME, LAST_NAME, BIRTHDAY, AGE, ADDRESS, REMOTE_WORK, DEPARTMENT, POSITION) VALUES(?, ?, ?, ?, ?, ?, ?, ? , ?, ?)";
+        String sql = "MERGE INTO WORKER KEY (WORKER_ID, PREVIEW, NAME, LAST_NAME, BIRTHDAY, AGE, ADDRESS, REMOTE_WORK, DEPARTMENT, POSITION) VALUES(?, ?, ?, ?, ?, ?, ?, ? , ?, ?)";
 
         try {
             preparedStatement = connection.prepareStatement(sql);

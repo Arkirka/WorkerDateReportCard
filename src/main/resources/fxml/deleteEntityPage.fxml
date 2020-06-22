@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.vorobyov.FX.controllers.DeleteEntityPageController">
+   <children>
+      <Label layoutX="40.0" layoutY="134.0" text="Таб. номер:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="261.0" layoutY="36.0" text="Удаление">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="252.0" layoutY="284.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="96.0" text="Удалить">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <TextField layoutX="226.0" layoutY="135.0" />
+   </children>
+</AnchorPane>

@@ -21,7 +21,7 @@ public class AccountingService implements AccountingDAO {
     public void add(Accounting accounting) {
         PreparedStatement preparedStatement = null;
 
-        String sql = "INSERT INTO ACCOUNTING (DAY, ENCODING, WORKER_ID) VALUES(?, ?, ?);";
+        String sql = "MERGE INTO ACCOUNTING KEY (DAY, ENCODING, WORKER_ID) VALUES(?, ?, ?);";
 
         try {
             preparedStatement = connection.prepareStatement(sql);

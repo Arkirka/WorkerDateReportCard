@@ -21,7 +21,7 @@ public class JobInfoService implements JobInfoDAO {
     public void add(JobInfo jobInfo) {
         PreparedStatement preparedStatement = null;
 
-        String sql = "INSERT INTO JOB_INFO (POSITION) VALUES(?)";
+        String sql = "MERGE INTO JOB_INFO KEY (POSITION) VALUES(?)";
 
         try {
             preparedStatement = connection.prepareStatement(sql);

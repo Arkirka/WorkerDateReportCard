@@ -75,19 +75,18 @@ public class WelcomePageController {
 
     public void createTables() throws IOException, SQLException {
 
-        if(!new RolesService().getAll().isEmpty()) new RolesService().truncateTable();
+        /*if(!new RolesService().getAll().isEmpty()) new RolesService().truncateTable();
         if(!new AccountingService().getAll().isEmpty()) new AccountingService().truncateTable();
         if(!new EncodingService().getAll().isEmpty()) new EncodingService().truncateTable();
         if(!new WorkerService().getAll().isEmpty()) new WorkerService().truncateTable();
         if(!new DepartmentService().getAll().isEmpty()) new DepartmentService().truncateTable();
-        if(!new JobInfoService().getAll().isEmpty()) new JobInfoService().truncateTable();
+        if(!new JobInfoService().getAll().isEmpty()) new JobInfoService().truncateTable();*/
 
         RolesService rolesService = new RolesService();
         rolesService.createTable();
 
         DepartmentService departmentService = new DepartmentService();
         departmentService.createTable();
-
 
 
         JobInfoService jobInfoService = new JobInfoService();
@@ -104,6 +103,7 @@ public class WelcomePageController {
 
         AccountingService accountingService = new AccountingService();
         accountingService.createTable();
+
 
         Roles roles = new Roles();
         roles.setLogin("Admin");
@@ -132,7 +132,7 @@ public class WelcomePageController {
         worker.setPreview(null);
         worker.setName("Пётр");
         worker.setLastName("Семёнов");
-        worker.setBirthday(new Date(1990, 3, 24));
+        worker.setBirthday(new Date(90, 3, 24));
         worker.setAge(30);
         worker.setAddress("г. Москва");
         worker.setRemoteWork(false);
@@ -144,7 +144,7 @@ public class WelcomePageController {
         worker.setPreview(null);
         worker.setName("Василий");
         worker.setLastName("Алибабаев");
-        worker.setBirthday(new Date(1983, 5, 23));
+        worker.setBirthday(new Date(83, 5, 23));
         worker.setAge(37);
         worker.setAddress("г. СПб");
         worker.setRemoteWork(false);
